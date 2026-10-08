@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furnivo | Premium Modern Furniture Store</title>
+  <meta name="description" content="Discover modern luxury furniture crafted from sustainable timber and tactile bouclé fabrics for serene contemporary living.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Announcement Bar
+       ========================================== -->
+  <header class="furnivo-header">
+    <div class="top-promo-bar">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Left: Quality Badge -->
+        <div class="promo-left d-none d-md-flex align-items-center gap-1">
+          <i class="bi bi-patch-check-fill"></i>
+          <span>Heirloom Craftsmanship</span>
+        </div>
+
+        <!-- Center: Promo Text -->
+        <div class="promo-center text-center">
+          <span class="highlight">Free Delivery on Orders Above ₹25,000</span>
+          <span class="mx-2 text-white-50">|</span>
+          <span>Complimentary In-Home Consultation</span>
+        </div>
+
+        <!-- Right: Currency & Contact -->
+        <div class="promo-right d-none d-lg-flex align-items-center gap-3">
+          <div class="currency-select position-relative">
+            <select class="currency-selector-select" onchange="setCurrency(this.value)" aria-label="Select Currency">
+              <option value="INR">INR (₹)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="AED">AED (AED)</option>
+            </select>
+          </div>
+          <span class="text-white-50">|</span>
+          <a href="contact.html" class="text-white text-decoration-none">Help &amp; Concierge</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         2. Navbar
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm furnivo-navbar">
+      <div class="container">
+        <!-- Brand Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo/furnivo-logo.png" alt="Furnivo - Modern Home & Interiors" class="brand-logo-img">
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#furnivoNavbar" aria-controls="furnivoNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links & Actions -->
+        <div class="collapse navbar-collapse" id="furnivoNavbar">
+          <!-- Center Menu Links -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="collection.html">Collections</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Right Action Icons -->
+          <div class="d-flex align-items-center gap-3">
+            <!-- Search Input -->
+            <div class="nav-search-box d-none d-xl-flex align-items-center">
+              <i class="bi bi-search me-2 text-muted"></i>
+              <input type="text" placeholder="Search bespoke designs..." class="border-0 bg-transparent nav-search-input">
+            </div>
+
+            <!-- Wishlist Button with Counter -->
+            <button type="button" class="icon-btn position-relative border-0 bg-transparent" title="Wishlist" onclick="openWishlistDrawer(event)">
+              <i class="bi bi-heart"></i>
+              <span class="badge-count wishlist-badge">0</span>
+            </button>
+
+            <!-- Cart Button with Counter -->
+            <button type="button" class="cart-btn d-flex align-items-center gap-2 border-0 bg-transparent" title="Cart" onclick="openCartDrawer(event)">
+              <i class="bi bi-cart3"></i>
+              <span class="d-none d-sm-inline cart-count-text">Cart</span>
+              <span class="badge-count cart-badge">0</span>
+            </button>
+
+            <!-- Profile Dropdown Panel -->
+            <div class="dropdown">
+              <button class="btn p-0 border-0 bg-transparent dropdown-toggle shadow-none" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdibT-J8Ev9hhChLhGDcpD02NSQ14ubr_Nl5FXigOSQHwdFeVKaIBU6w6bv5iYMwPGz115P_5yR403oJEeGwjIglPocW7WZJUcceJvcOFYUZtcs2sHwvWDzkC8KdF2Nq63nmePBTE7g2Ck4ukVFbn4Lign1zTC1AE00wbeoX_dCSoIe5dcYwEYJm8ozdKpImDS2tFQO1t0eqL-WMEtk_il9YqQT3c0I1ITkZ-98rwYKPgrQW35B2iE" alt="Profile" class="profile-img">
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end profile-dropdown-menu" aria-labelledby="profileDropdown">
+                <li class="dropdown-header">
+                  <h6 class="fw-bold mb-0 text-dark" id="dropdownUserName">Welcome to Furnivo</h6>
+                  <small class="text-muted" id="dropdownUserRole">Bespoke Furniture Concierge</small>
+                </li>
+                <li><a class="dropdown-item mt-2" href="login.html"><i class="bi bi-person"></i> My Profile &amp; Account</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" onclick="openWishlistDrawer(event)"><i class="bi bi-heart"></i> My Wishlist</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" onclick="openCartDrawer(event)"><i class="bi bi-bag"></i> My Cart Preview</a></li>
+                <li><a class="dropdown-item" href="cart.html"><i class="bi bi-box-seam"></i> My Orders &amp; Checkout</a></li>
+                <li><a class="dropdown-item" href="contact.html"><i class="bi bi-geo-alt"></i> Saved Addresses</a></li>
+                <li><a class="dropdown-item" href="contact.html"><i class="bi bi-question-circle"></i> Help &amp; Support</a></li>
+                <li class="border-top pt-2 mt-2" id="dropdownAuthButtons">
+                  <div class="d-flex gap-2">
+                    <a href="login.html?tab=signin" class="btn btn-sm btn-dark-custom w-50 py-1 text-center">Sign In</a>
+                    <a href="login.html?tab=register" class="btn btn-sm btn-outline-custom w-50 py-1 text-center">Register</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================
+       3. Hero Section
+       ========================================== -->
+  <section class="hero-section py-5 position-relative">
+    <div class="container py-lg-4">
+      <div class="row align-items-center g-5">
+        <!-- Left Column: Copy & CTAs -->
+        <div class="col-lg-6">
+          <div class="hero-badge mb-3">
+            <span class="hero-pill">
+              <span class="dot"></span> CRAFTED FOR BETTER LIVING
+            </span>
+          </div>
+
+          <h1 class="hero-title display-4 fw-bold mb-3">
+            Furniture That Makes Your Space Feel <span class="italic-text">Like Home</span>.
+          </h1>
+
+          <p class="hero-desc lead text-muted mb-4">
+            Curated Scandinavian minimalism meets warm organic materials. Designed with sustainable timber, tactile bouclé fabrics, and heirloom construction.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 mb-5">
+            <a href="#featured-products" class="btn btn-dark-custom">
+              Explore Collection <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+            <a href="#new-arrivals" class="btn btn-outline-custom">
+              View New Arrivals
+            </a>
+          </div>
+
+          <!-- Trust Counters Strip -->
+          <div class="row g-3 pt-3 border-top">
+            <div class="col-4">
+              <h4 class="fw-bold mb-0">100%</h4>
+              <small class="text-muted">FSC Solid Timber</small>
+            </div>
+            <div class="col-4">
+              <h4 class="fw-bold mb-0">15 Yrs</h4>
+              <small class="text-muted">Frame Warranty</small>
+            </div>
+            <div class="col-4">
+              <h4 class="fw-bold mb-0">Free</h4>
+              <small class="text-muted">White Glove Delivery</small>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Hero Lifestyle Imagery & Proof Card -->
+        <div class="col-lg-6 position-relative">
+          <div class="hero-image-wrapper">
+            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLBAVndBs2tGZYTsikOte5BmNydghjXUWlBaht6fcS8XhUrF4Sv8VVVuj1HLa4wGCx94uF8gceInw3Leh5n-bgrKzoZlHN3UIEpPdLa5t5cjlaMJ76g4rSYoXmTkx6Izq7wOXH8YAKC8kbYANjCQ7lPWOBERCNhYPkCrwiGPTPOiEG7xVGeTLCITdhmR1Cio7m0jXTdGd0AMeXA5tQEA2jEjICUXcTN22hkOXwidRS0EsQvDwhzBs4" alt="Furnivo Luxury Living Room" class="img-fluid hero-img shadow-lg">
+          </div>
+
+          <!-- Floating Proof Card -->
+          <div class="floating-proof-card shadow-lg p-3 bg-white">
+            <div class="d-flex align-items-start gap-3">
+              <div class="proof-icon-circle bg-light text-warning p-2 rounded-circle">
+                <i class="bi bi-award fs-4"></i>
+              </div>
+              <div>
+                <div class="d-flex align-items-center gap-1 mb-1">
+                  <i class="bi bi-star-fill text-warning"></i>
+                  <strong class="fs-6">4.95 / 5.0</strong>
+                  <small class="text-muted ms-1">(3,800+ reviews)</small>
+                </div>
+                <h6 class="mb-1 fw-bold">Handcrafted Quality</h6>
+                <p class="mb-0 text-muted small">100% Solid Oak &amp; Walnut crafted to endure generations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       4. Explore By Room
+       ========================================== -->
+  <section class="explore-section py-5 bg-light-custom">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+        <div>
+          <span class="badge-subtitle">Curated Spaces</span>
+          <h2 class="section-title mb-0">Explore By Room</h2>
+        </div>
+        <p class="text-muted mb-0 mt-2 mt-md-0" style="max-width: 420px;">
+          Thoughtfully designed essentials for every corner of your sanctuary, calibrated for spatial fluidity.
+        </p>
+      </div>
+
+      <!-- 6 Room Cards Grid -->
+      <div class="row g-4">
+        <!-- 1. Sofas -->
+        <div class="col-md-6 col-lg-4">
+          <div class="room-card" onclick="filterCategory('living'); window.location.href='#featured-products';">
+            <div class="room-img-container">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuD37fqBm9G7nGpEmZH7hpWlmUYnrgIWM6aqpEkA27fDZwRCOQ31453MwqRYohulNDd5X-HoEzpxF8kr7cnh6_I12OtsDcoDfp8HD2Ki0FflRZ2K82j6O-J_ZBLLIiECPMHvUkf_7022LmIHPiptsxr0ETEhAtASwPv1WlyqrasLE8uqFLuaRpxUrehrn274zaw6A3pltqjIHkl1JR5FW-6IC9QoWCv7mOoC0L_G-AZaepVmJZijm5eY" alt="Sofas in Luxury Living Room" class="room-img" loading="lazy">
+            </div>
+            <div class="room-card-overlay">
+              <span class="room-subtitle">Living Lounge</span>
+              <h4 class="room-title">Sofas</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="room-count">Explore Collection (24 items)</span>
+                <span class="room-btn"><i class="bi bi-arrow-up-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Beds -->
+        <div class="col-md-6 col-lg-4">
+          <div class="room-card" onclick="filterCategory('bedroom'); window.location.href='#featured-products';">
+            <div class="room-img-container">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjp3IBEZ5W_1kEDA_dCjaU7YMDJXsRBSaChVuvKPDCu-8BG9ynInYN1CjDp4GIGqlhz76yWT69tokbwU2cRn_fwICieLaqBkVlEzulnXZ9GoRoLxZXd8XtYsP-xQnkmxo3OriQOvbdtT6Tho_b1Mf-PArXSkSC99l2rsp-y09bmbQWl9SBEMs0aZa2NhBdl_lvL4sNF5iN5FLvVEhMTXkgc4-98a6nHAZOMH_UsNjt0QpiB-KbcVUA" alt="Beds in Modern Bedroom" class="room-img" loading="lazy">
+            </div>
+            <div class="room-card-overlay">
+              <span class="room-subtitle">Sanctuary Sleep</span>
+              <h4 class="room-title">Beds</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="room-count">Explore Collection (18 items)</span>
+                <span class="room-btn"><i class="bi bi-arrow-up-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Dining -->
+        <div class="col-md-6 col-lg-4">
+          <div class="room-card" onclick="filterCategory('dining'); window.location.href='#featured-products';">
+            <div class="room-img-container">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrYtx8_KbMdaXoL949HmMBroo4m08zmxpp_S-gmv12CLID_kqO3g1UtQhoubB0EDxa5WOBM0KC_kZ1dsVnwvTBhnl_sVu2d5scaF8bnDZwT7wLGXCwu7s1Qjw5BjtpndUhEdetEx2F4GYnVfzACWQC8coqzuzkhF95qZkJaHGVS5bnUDaUycJXiUJHObtIOBwdQt2G-XX5kO6eTr2Y_Zp2vb_vPXD3JQ7CREE_Gt_uqZrm6u6qkg5x" alt="Dining Room Furniture" class="room-img" loading="lazy">
+            </div>
+            <div class="room-card-overlay">
+              <span class="room-subtitle">Shared Gatherings</span>
+              <h4 class="room-title">Dining</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="room-count">Explore Collection (32 items)</span>
+                <span class="room-btn"><i class="bi bi-arrow-up-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Chairs -->
+        <div class="col-md-6 col-lg-4">
+          <div class="room-card" onclick="filterCategory('living'); window.location.href='#featured-products';">
+            <div class="room-img-container">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUh29_S-ozUZX6GXFbyiCK0JUtP1AWs_83JjJf2Vwlk6zPQrePRLeISmQ-cpQTjuclq7KmA6qgHV21BjOmxDS3OoybG9FEe4CPKIMzxSm2qFY0obH-kmKx3IEL1P05KFSM_QQMFlbdHOKKirnqhwT7DgmiSVq5VfjkttsrYwJcI6A72ED6cdJA-U4ABLLkJtqMkaeGS8ihF6IKtzGrL5M08kTA_BbqeVcaqrLTWyG33WA9i3OXN4qI" alt="Accent Chairs in Styled Lounge" class="room-img" loading="lazy">
+            </div>
+            <div class="room-card-overlay">
+              <span class="room-subtitle">Accent Seating</span>
+              <h4 class="room-title">Chairs</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="room-count">Explore Collection (16 items)</span>
+                <span class="room-btn"><i class="bi bi-arrow-up-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Tables -->
+        <div class="col-md-6 col-lg-4">
+          <div class="room-card" onclick="filterCategory('living'); window.location.href='#featured-products';">
+            <div class="room-img-container">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-KrgN6duwaqukl8A7RVUBX69bRqxleyCC_fA00nkETCvjeMPzN-9VKBkUBcr87XdczdoHDlbgcXMGXoy2JmGvAk25xPp219Yn_2OJJoK406Hu0iPkhanp58lJlkhyo_OVSA9VMXys1DQ6faaV1yAsXNu5ERwa-8YtYRsXk8_ClLfWAmluSgHUW08bvkziGTG_8vUL58HyDVmyGdyqGTGZVoT8m9VsUUUX5gke49FyrBiOrHnzIzDo" alt="Coffee Tables in Modern Room" class="room-img" loading="lazy">
+            </div>
+            <div class="room-card-overlay">
+              <span class="room-subtitle">Centerpieces</span>
+              <h4 class="room-title">Tables</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="room-count">Explore Collection (14 items)</span>
+                <span class="room-btn"><i class="bi bi-arrow-up-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Wardrobes -->
+        <div class="col-md-6 col-lg-4">
+          <div class="room-card" onclick="filterCategory('bedroom'); window.location.href='#featured-products';">
+            <div class="room-img-container">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjan1Ow7GH1J604gENMWITWbArFosw2JW2-aBTZ4tpB7wQs1habGZNx1CGTJ7X-d9hvIHwMktf_6B05OgvxZyuH6MvnE-wDmyh6XoUdgT40irInzoUlBM-X_A9qKIu6LvowOEJrwg0j4wjBVVefWvVH75cmWKoVbI2TpxxVDtvoWBO1QN8WPj2S7pWIqOoYkUwDFMcbr6CqlZ6utWgHPqW_A_IYcAHnyVq-w5Qpl8J7jtg2mI7XYgE" alt="Wardrobes in Bedroom Interior" class="room-img" loading="lazy">
+            </div>
+            <div class="room-card-overlay">
+              <span class="room-subtitle">Artisanal Storage</span>
+              <h4 class="room-title">Wardrobes</h4>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="room-count">Explore Collection (12 items)</span>
+                <span class="room-btn"><i class="bi bi-arrow-up-right"></i></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       5. Featured Products Section
+       ========================================== -->
+  <section class="products-section py-5" id="featured-products">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-3 mb-4">
+        <div>
+          <span class="badge-subtitle">Iconic Releases</span>
+          <h2 class="section-title mb-0">Featured Products</h2>
+        </div>
+
+        <!-- Category Filters -->
+        <div class="filter-btn-group d-flex flex-wrap gap-2">
+          <button class="btn filter-btn active" onclick="filterCategory('all', this)">All</button>
+          <button class="btn filter-btn" onclick="filterCategory('living', this)">Living Room</button>
+          <button class="btn filter-btn" onclick="filterCategory('bedroom', this)">Bedroom</button>
+          <button class="btn filter-btn" onclick="filterCategory('dining', this)">Dining Room</button>
+        </div>
+
+        <a href="shop.html" class="text-dark fw-bold text-decoration-none d-none d-lg-inline-block">
+          View All Products <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Products Grid (9 Master Items) -->
+      <div class="row g-4" id="products-container">
+        <!-- 1. Oslo Lounge Modular Sofa -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="living">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=oslo-sofa'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Oslo Lounge Modular Sofa" loading="lazy">
+              <span class="badge badge-tag bg-secondary-custom">Bestseller</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'oslo-sofa', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('oslo-sofa', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Living Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.9 (128)</span>
+              </div>
+              <h5 class="product-title">Oslo Lounge Modular Sofa</h5>
+              <p class="product-subtitle">Solid Oak + Premium Bouclé</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#485340;" title="Olive Bouclé"></span>
+                <span class="swatch" style="background:#E3DAC9;" title="Warm Sand"></span>
+                <span class="swatch" style="background:#D5CBBF;" title="Oatmeal Wool"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹94,999</span>
+                  <span class="product-current-price">₹84,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=oslo-sofa" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('oslo-sofa', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Nova Oak Dining Table -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="dining">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=nova-table'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Nova Oak Dining Table" loading="lazy">
+              <span class="badge badge-tag bg-dark">Solid Oak</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'nova-table', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('nova-table', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Dining Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.9 (94)</span>
+              </div>
+              <h5 class="product-title">Nova Oak Dining Table</h5>
+              <p class="product-subtitle">100% Solid European White Oak</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#C8A168;" title="European Oak"></span>
+                <span class="swatch" style="background:#523A28;" title="Smoked Walnut"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹64,999</span>
+                  <span class="product-current-price">₹58,499</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=nova-table" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('nova-table', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Haven Bouclé Lounge Chair -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="living">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=haven-chair'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Haven Bouclé Lounge Chair" loading="lazy">
+              <span class="badge badge-tag bg-secondary-custom">New Arrival</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'haven-chair', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('haven-chair', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Living Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.8 (82)</span>
+              </div>
+              <h5 class="product-title">Haven Bouclé Lounge Chair</h5>
+              <p class="product-subtitle">High-Density Bouclé + Oak</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#EAE7DF;" title="Bouclé Ivory"></span>
+                <span class="swatch" style="background:#3B3A36;" title="Charcoal Wool"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹38,999</span>
+                  <span class="product-current-price">₹34,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=haven-chair" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('haven-chair', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Aria Japandi King Platform Bed -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="bedroom">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=aria-bed'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Aria Japandi King Platform Bed" loading="lazy">
+              <span class="badge badge-tag bg-dark">Japandi Platform</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'aria-bed', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('aria-bed', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Bedroom</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>5.0 (64)</span>
+              </div>
+              <h5 class="product-title">Aria Japandi King Platform Bed</h5>
+              <p class="product-subtitle">Fluted White Ash &amp; Natural Linen</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#D1C7BD;" title="Muted Linen"></span>
+                <span class="swatch" style="background:#9E6E38;" title="Honey Teak"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹79,999</span>
+                  <span class="product-current-price">₹72,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=aria-bed" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('aria-bed', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Forma Heritage Double Wardrobe -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="bedroom">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=forma-wardrobe'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Forma Heritage Double Wardrobe" loading="lazy">
+              <span class="badge badge-tag bg-secondary-custom">Master Crafted</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'forma-wardrobe', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('forma-wardrobe', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Bedroom</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.9 (41)</span>
+              </div>
+              <h5 class="product-title">Forma Heritage Double Wardrobe</h5>
+              <p class="product-subtitle">Smoked Walnut &amp; Brass Hardware</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#523A28;" title="Smoked Walnut"></span>
+                <span class="swatch" style="background:#D1C7BD;" title="White Ash"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹1,25,000</span>
+                  <span class="product-current-price">₹1,12,000</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=forma-wardrobe" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('forma-wardrobe', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Luna Fluted Round Coffee Table -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="living">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=luna-table'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Luna Fluted Round Coffee Table" loading="lazy">
+              <span class="badge badge-tag bg-dark">Fluted Oak</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'luna-table', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('luna-table', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Living Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.9 (110)</span>
+              </div>
+              <h5 class="product-title">Luna Fluted Round Coffee Table</h5>
+              <p class="product-subtitle">Handcrafted Fluted Oak Timber</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#C8A168;" title="Natural Oak"></span>
+                <span class="swatch" style="background:#2C221E;" title="Deep Espresso"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹26,999</span>
+                  <span class="product-current-price">₹22,499</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=luna-table" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('luna-table', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Kyoto Solid Ash Dining Chair -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="dining">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=kyoto-chair'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjc9oJHlhdUIjNKDPdHMGbcz_GMtDLwYsc1V5CoezCCgXNWHU52x86ARE&s=10" class="card-img-top" alt="Kyoto Solid Ash Dining Chair" loading="lazy">
+              <span class="badge badge-tag bg-dark">Curved Timber</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'kyoto-chair', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('kyoto-chair', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Dining Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.9 (58)</span>
+              </div>
+              <h5 class="product-title">Kyoto Solid Ash Dining Chair</h5>
+              <p class="product-subtitle">100% Solid White Ash &amp; Organic Linen</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#D6C4A5;" title="Natural Ash"></span>
+                <span class="swatch" style="background:#4A3B32;" title="Smoked Walnut"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹19,999</span>
+                  <span class="product-current-price">₹16,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=kyoto-chair" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('kyoto-chair', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Nordic Floating Oak Nightstand -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="bedroom">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=nordic-nightstand'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1532323544230-7191fd51bc1b?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Nordic Floating Oak Nightstand" loading="lazy">
+              <span class="badge badge-tag bg-secondary-custom">Wall-Mounted</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'nordic-nightstand', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('nordic-nightstand', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Bedroom</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.85 (47)</span>
+              </div>
+              <h5 class="product-title">Nordic Floating Oak Nightstand</h5>
+              <p class="product-subtitle">Solid European Oak + Blum Drawer</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#C8A168;" title="Natural Oak"></span>
+                <span class="swatch" style="background:#2C221E;" title="Deep Espresso"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹16,999</span>
+                  <span class="product-current-price">₹14,499</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=nordic-nightstand" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('nordic-nightstand', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9. Zenith Fluted Credenza Sideboard -->
+        <div class="col-md-6 col-lg-4 product-item" data-category="living">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=zenith-sideboard'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Zenith Fluted Credenza Sideboard" loading="lazy">
+              <span class="badge badge-tag bg-dark">Fluted Tambour</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'zenith-sideboard', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('zenith-sideboard', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Living Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.94 (72)</span>
+              </div>
+              <h5 class="product-title">Zenith Fluted Credenza Sideboard</h5>
+              <p class="product-subtitle">Smoked Walnut &amp; Brushed Brass</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#523A28;" title="Smoked Walnut"></span>
+                <span class="swatch" style="background:#D1C7BD;" title="White Ash"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹74,999</span>
+                  <span class="product-current-price">₹64,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=zenith-sideboard" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('zenith-sideboard', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       6. SHOP THE LOOK (Curated Editorial Room)
+       ========================================== -->
+  <section class="shop-look-section py-5 bg-light-custom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-subtitle">Editorial Styling</span>
+        <h2 class="section-title">SHOP THE LOOK</h2>
+        <p class="text-muted max-w-600 mx-auto">
+          Experience how our handcrafted furniture pieces harmonize within a complete modern sanctuary.
+        </p>
+      </div>
+
+      <div class="row g-4 align-items-center">
+        <!-- Left: Complete Lifestyle Room Image -->
+        <div class="col-lg-7">
+          <div class="shop-look-card shadow-sm">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" alt="Modern Minimal Living Room Styling" class="shop-look-img" loading="lazy">
+          </div>
+        </div>
+
+        <!-- Right: Featured Room Products List -->
+        <div class="col-lg-5">
+          <div class="d-flex flex-column gap-3">
+            <!-- Item 1: Oslo Sofa -->
+            <div class="look-product-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="fw-bold mb-1">Oslo Lounge Modular Sofa</h6>
+                <span class="text-secondary-custom fw-bold">₹84,999</span>
+                <small class="text-muted d-block">Olive Bouclé Finish</small>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="product-details.html?id=oslo-sofa" class="btn btn-sm btn-outline-dark rounded-pill">View Details</a>
+                <button class="btn btn-sm btn-dark rounded-pill" onclick="addToCart('oslo-sofa', 1);">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 2: Luna Coffee Table -->
+            <div class="look-product-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="fw-bold mb-1">Luna Fluted Coffee Table</h6>
+                <span class="text-secondary-custom fw-bold">₹22,499</span>
+                <small class="text-muted d-block">Handcrafted Fluted Oak</small>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="product-details.html?id=luna-table" class="btn btn-sm btn-outline-dark rounded-pill">View Details</a>
+                <button class="btn btn-sm btn-dark rounded-pill" onclick="addToCart('luna-table', 1);">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Item 3: Haven Lounge Chair -->
+            <div class="look-product-item d-flex justify-content-between align-items-center">
+              <div>
+                <h6 class="fw-bold mb-1">Haven Bouclé Lounge Chair</h6>
+                <span class="text-secondary-custom fw-bold">₹34,999</span>
+                <small class="text-muted d-block">Tactile Ivory Bouclé</small>
+              </div>
+              <div class="d-flex gap-2">
+                <a href="product-details.html?id=haven-chair" class="btn btn-sm btn-outline-dark rounded-pill">View Details</a>
+                <button class="btn btn-sm btn-dark rounded-pill" onclick="addToCart('haven-chair', 1);">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       7. NEW ARRIVALS (Curated Releases)
+       ========================================== -->
+  <section class="py-5" id="new-arrivals">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-end mb-4">
+        <div>
+          <span class="badge-subtitle">Seasonal Drops</span>
+          <h2 class="section-title mb-0">New Arrivals</h2>
+        </div>
+        <a href="shop.html" class="text-dark fw-bold text-decoration-none">Explore All <i class="bi bi-arrow-right"></i></a>
+      </div>
+
+      <div class="row g-4">
+        <!-- New Arrival 1: Haven Bouclé Lounge Chair -->
+        <div class="col-md-4">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=haven-chair'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1567538096630-e0c55bd6374c?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Haven Bouclé Lounge Chair" loading="lazy">
+              <span class="badge badge-tag bg-secondary-custom">New Release</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'haven-chair', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('haven-chair', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Living Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.8 (82)</span>
+              </div>
+              <h5 class="product-title">Haven Bouclé Lounge Chair</h5>
+              <p class="product-subtitle">High-Density Bouclé + Oak</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#EAE7DF;" title="Bouclé Ivory"></span>
+                <span class="swatch" style="background:#3B3A36;" title="Charcoal Wool"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹38,999</span>
+                  <span class="product-current-price">₹34,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=haven-chair" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('haven-chair', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Arrival 2: Luna Fluted Round Coffee Table -->
+        <div class="col-md-4">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=luna-table'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Luna Fluted Round Coffee Table" loading="lazy">
+              <span class="badge badge-tag bg-dark">Sculptural</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'luna-table', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('luna-table', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Living Room</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>4.9 (110)</span>
+              </div>
+              <h5 class="product-title">Luna Fluted Round Coffee Table</h5>
+              <p class="product-subtitle">Handcrafted Fluted Oak Timber</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#C8A168;" title="Natural Oak"></span>
+                <span class="swatch" style="background:#2C221E;" title="Deep Espresso"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹26,999</span>
+                  <span class="product-current-price">₹22,499</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=luna-table" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('luna-table', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- New Arrival 3: Aria Japandi King Platform Bed -->
+        <div class="col-md-4">
+          <div class="card product-card h-100 border-0 shadow-sm" onclick="window.location.href='product-details.html?id=aria-bed'" style="cursor: pointer;">
+            <div class="product-img-box position-relative">
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=800&q=80" class="card-img-top" alt="Aria Japandi King Platform Bed" loading="lazy">
+              <span class="badge badge-tag bg-secondary-custom">Japandi Kyoto</span>
+              <button class="btn-wishlist" onclick="toggleWishlist(this, 'aria-bed', event)" aria-label="Wishlist">
+                <i class="bi bi-heart"></i>
+              </button>
+              <button class="btn-quickview" onclick="openQuickView('aria-bed', event)">
+                <i class="bi bi-eye me-1"></i> Quick View
+              </button>
+            </div>
+            <div class="card-body">
+              <div class="product-meta-row">
+                <span class="product-category">Bedroom</span>
+                <span class="product-rating"><i class="bi bi-star-fill me-1"></i>5.0 (64)</span>
+              </div>
+              <h5 class="product-title">Aria Japandi King Platform Bed</h5>
+              <p class="product-subtitle">Fluted White Ash &amp; Natural Linen</p>
+              <div class="swatches-row">
+                <small class="swatches-label">Finishes:</small>
+                <span class="swatch active" style="background:#D1C7BD;" title="Muted Linen"></span>
+                <span class="swatch" style="background:#9E6E38;" title="Honey Teak"></span>
+              </div>
+              <div class="product-card-footer">
+                <div class="product-price-wrapper">
+                  <span class="product-old-price">₹79,999</span>
+                  <span class="product-current-price">₹72,999</span>
+                </div>
+                <div class="product-actions-btn-group">
+                  <a href="product-details.html?id=aria-bed" class="btn btn-outline-dark" onclick="event.stopPropagation();">
+                    Details
+                  </a>
+                  <button class="btn btn-dark" onclick="event.stopPropagation(); addToCart('aria-bed', 1);">
+                    <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       8. MATERIAL & CRAFTSMANSHIP
+       ========================================== -->
+  <section class="craftsmanship-section py-5 bg-light-custom">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <span class="badge-subtitle">Heirloom Lineage</span>
+          <h2 class="section-title mb-3">"Made to Be Lived With"</h2>
+          <p class="text-muted mb-4">
+            We reject mass-produced transient furniture. Each piece is crafted by generational artisans using sustainably sourced timber, non-toxic plant wax, and high-tensile bouclé weaves designed to age gracefully.
+          </p>
+
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="craft-card p-3">
+                <img src="https://images.unsplash.com/photo-1530018607912-eff2daa1bac4?auto=format&fit=crop&w=400&q=80" alt="Solid Wood Craft" class="craft-card-img rounded-3 mb-2" loading="lazy">
+                <h6 class="fw-bold mb-1">Solid Wood</h6>
+                <small class="text-muted">FSC European Oak &amp; Walnut</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="craft-card p-3">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" alt="Premium Bouclé Fabric" class="craft-card-img rounded-3 mb-2" loading="lazy">
+                <h6 class="fw-bold mb-1">Premium Bouclé</h6>
+                <small class="text-muted">80,000 Martindale Tactile Weave</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="craft-card p-3">
+                <img src="https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=400&q=80" alt="Natural Oak Texture" class="craft-card-img rounded-3 mb-2" loading="lazy">
+                <h6 class="fw-bold mb-1">Natural Oak</h6>
+                <small class="text-muted">Cold-Pressed Hardwax Oils</small>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="craft-card p-3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3P8qr2EzAT8JPI1zOWgIjD2JFrrLE2dfpDz5DnYaguk-RYJcZ5JTeycw&s=10" alt="Handcrafted Joinery" class="craft-card-img rounded-3 mb-2" loading="lazy">
+                <h6 class="fw-bold mb-1">Handcrafted Finish</h6>
+                <small class="text-muted">Master Mortise &amp; Tenon</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="position-relative">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=900&q=80" alt="Artisan Craftsmanship Studio" class="img-fluid rounded-4 shadow-lg w-100" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       9. Special Release: Autumn Solace Collection
+       ========================================== -->
+  <section class="banner-section py-5">
+    <div class="container">
+      <div class="card studio-card border-0 rounded-4 overflow-hidden position-relative p-4 p-md-5 text-white">
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLBAVndBs2tGZYTsikOte5BmNydghjXUWlBaht6fcS8XhUrF4Sv8VVVuj1HLa4wGCx94uF8gceInw3Leh5n-bgrKzoZlHN3UIEpPdLa5t5cjlaMJ76g4rSYoXmTkx6Izq7wOXH8YAKC8kbYANjCQ7lPWOBERCNhYPkCrwiGPTPOiEG7xVGeTLCITdhmR1Cio7m0jXTdGd0AMeXA5tQEA2jEjICUXcTN22hkOXwidRS0EsQvDwhzBs4" alt="Autumn Solace Collection" class="studio-bg-img" loading="lazy">
+        <div class="studio-bg-overlay"></div>
+
+        <div class="row position-relative z-2 align-items-center g-4">
+          <div class="col-lg-7">
+            <span class="hero-pill mb-3">
+              <span class="dot"></span> SPECIAL RELEASE &bull; 2025
+            </span>
+            <h2 class="display-5 fw-bold mb-3">The Autumn Solace Collection</h2>
+            <p class="lead text-white-50 mb-4">
+              A serene exploration of tactile minimalism, grounding earth pigments, and architectural timber joinery designed for peaceful living.
+            </p>
+
+            <div class="d-flex flex-column gap-2 mb-4">
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>Certified Sustainable White Oak &amp; American Walnut</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>High-Density Tactile Bouclé (80,000 Martindale)</span>
+              </div>
+              <div class="d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill text-warning"></i>
+                <span>Sculptural Ergonomics with Lifetime Frame Guarantee</span>
+              </div>
+            </div>
+
+            <div class="d-flex flex-wrap gap-3">
+              <a href="product-details.html?id=oslo-sofa" class="btn btn-warning-custom px-4">
+                Shop Collection <i class="bi bi-arrow-right ms-1"></i>
+              </a>
+              <button class="btn btn-outline-light rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#consultationModal">
+                Book Design Consultation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       10. Why Choose Us (The Uncompromising Standard)
+       ========================================== -->
+  <section class="why-us-section py-5 bg-light-custom">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="badge-subtitle">The Furnivo Difference</span>
+        <h2 class="section-title">The Uncompromising Standard</h2>
+      </div>
+
+      <div class="row g-4">
+        <!-- Feature 1 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card why-card h-100 p-4 border-0 rounded-4 shadow-sm">
+            <div class="why-icon-circle mb-3">
+              <i class="bi bi-tree"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Premium Materials</h5>
+            <p class="text-muted small mb-0">100% sustainably harvested solid timber and hand-picked non-toxic natural waxes.</p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card why-card h-100 p-4 border-0 rounded-4 shadow-sm">
+            <div class="why-icon-circle mb-3">
+              <i class="bi bi-tools"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Expert Craftsmanship</h5>
+            <p class="text-muted small mb-0">Traditional mortise-and-tenon joints engineered to outlast machine fasteners.</p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card why-card h-100 p-4 border-0 rounded-4 shadow-sm">
+            <div class="why-icon-circle mb-3">
+              <i class="bi bi-truck"></i>
+            </div>
+            <h5 class="fw-bold mb-2">White Glove Delivery</h5>
+            <p class="text-muted small mb-0">Scheduled delivery with in-room placement, packaging removal, and assembly.</p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card why-card h-100 p-4 border-0 rounded-4 shadow-sm">
+            <div class="why-icon-circle mb-3">
+              <i class="bi bi-shield-check"></i>
+            </div>
+            <h5 class="fw-bold mb-2">Sustainable Choices</h5>
+            <p class="text-muted small mb-0">For every tree harvested, five saplings are planted in community-managed forests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       11. Customer Reviews (Cherished in Real Homes)
+       ========================================== -->
+  <section class="reviews-section py-5">
+    <div class="container">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+        <div>
+          <span class="badge-subtitle">Verified Owners</span>
+          <h2 class="section-title mb-0">Cherished in Real Homes</h2>
+        </div>
+        <div class="d-flex align-items-center gap-2 mt-2 mt-md-0">
+          <div class="text-warning">
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i>
+          </div>
+          <strong class="fs-5">4.95 / 5.0</strong>
+          <span class="text-muted small">(3,800+ reviews)</span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+        <!-- Review 1 -->
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-muted small mb-4">
+              "The Oslo Modular Sofa transformed our Indiranagar apartment. The tactile bouclé feels heavenly and the solid oak platform is rock-solid. Delivery was seamlessly arranged."
+            </p>
+            <div class="d-flex align-items-center gap-3 mt-auto">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdibT-J8Ev9hhChLhGDcpD02NSQ14ubr_Nl5FXigOSQHwdFeVKaIBU6w6bv5iYMwPGz115P_5yR403oJEeGwjIglPocW7WZJUcceJvcOFYUZtcs2sHwvWDzkC8KdF2Nq63nmePBTE7g2Ck4ukVFbn4Lign1zTC1AE00wbeoX_dCSoIe5dcYwEYJm8ozdKpImDS2tFQO1t0eqL-WMEtk_il9YqQT3c0I1ITkZ-98rwYKPgrQW35B2iE" alt="Ananya Rao" class="rounded-circle" style="width: 44px; height: 44px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0 fw-bold">Ananya Rao</h6>
+                <small class="text-muted">Bengaluru &bull; Oslo Sofa Owner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-muted small mb-4">
+              "The Nova Dining Table has received endless compliments during dinner parties. The organic hardwax finish repels spills effortlessly. Truly museum-grade woodworking."
+            </p>
+            <div class="d-flex align-items-center gap-3 mt-auto">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjan1Ow7GH1J604gENMWITWbArFosw2JW2-aBTZ4tpB7wQs1habGZNx1CGTJ7X-d9hvIHwMktf_6B05OgvxZyuH6MvnE-wDmyh6XoUdgT40irInzoUlBM-X_A9qKIu6LvowOEJrwg0j4wjBVVefWvVH75cmWKoVbI2TpxxVDtvoWBO1QN8WPj2S7pWIqOoYkUwDFMcbr6CqlZ6utWgHPqW_A_IYcAHnyVq-w5Qpl8J7jtg2mI7XYgE" alt="Vikram Malhotra" class="rounded-circle" style="width: 44px; height: 44px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0 fw-bold">Vikram Malhotra</h6>
+                <small class="text-muted">Mumbai &bull; Nova Table Owner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm rounded-4 p-4 h-100 bg-white">
+            <div class="text-warning mb-3">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+            <p class="text-muted small mb-4">
+              "Our Aria Japandi Bed provides the most grounding, peaceful sleep experience. The fluted ash wood headboard has a wonderful tactile warmth. 10/10 recommend."
+            </p>
+            <div class="d-flex align-items-center gap-3 mt-auto">
+              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjp3IBEZ5W_1kEDA_dCjaU7YMDJXsRBSaChVuvKPDCu-8BG9ynInYN1CjDp4GIGqlhz76yWT69tokbwU2cRn_fwICieLaqBkVlEzulnXZ9GoRoLxZXd8XtYsP-xQnkmxo3OriQOvbdtT6Tho_b1Mf-PArXSkSC99l2rsp-y09bmbQWl9SBEMs0aZa2NhBdl_lvL4sNF5iN5FLvVEhMTXkgc4-98a6nHAZOMH_UsNjt0QpiB-KbcVUA" alt="Devika Sen" class="rounded-circle" style="width: 44px; height: 44px; object-fit: cover;">
+              <div>
+                <h6 class="mb-0 fw-bold">Devika Sen</h6>
+                <small class="text-muted">New Delhi &bull; Aria Bed Owner</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       12. Newsletter Section
+       ========================================== -->
+  <section class="newsletter-section py-5 bg-light-custom">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <div class="newsletter-icon-circle mx-auto mb-3">
+            <i class="bi bi-envelope-paper"></i>
+          </div>
+          <span class="badge-subtitle">Join The Circle</span>
+          <h2 class="section-title mb-2">Get Inspired</h2>
+          <p class="text-muted mb-4 max-w-500 mx-auto">
+            Receive private exhibition invitations, seasonal architectural lookbooks, and exclusive interior styling notes.
+          </p>
+
+          <form id="newsletterForm" class="d-flex flex-column flex-sm-row justify-content-center gap-2 max-w-500 mx-auto">
+            <input type="email" id="newsletterEmail" class="form-control rounded-pill px-4 py-2" placeholder="Enter your email address...">
+            <button type="submit" class="btn btn-dark-custom text-nowrap">Subscribe</button>
+          </form>
+          <p id="newsletterMessage" class="small text-muted mt-2 mb-0"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       13. Footer
+       ========================================== -->
+  <footer class="furnivo-footer bg-white pt-5 pb-4 border-top">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom">
+        <!-- Col 1: Brand Info -->
+        <div class="col-lg-4">
+          <a class="d-flex align-items-center mb-3 text-decoration-none" href="index.html">
+            <img src="images/logo/furnivo-logo.png" alt="Furnivo - Modern Home & Interiors" class="brand-logo-img footer-logo-img">
+          </a>
+          <p class="text-muted small mb-4">
+            Furnivo crafts timeless, sustainable furniture combining Scandinavian minimalism with rich organic materials designed for modern living.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop Links -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Shop</h6>
+          <ul class="list-unstyled footer-links small">
+            <li class="mb-2"><a href="shop.html">Living Room</a></li>
+            <li class="mb-2"><a href="shop.html">Bedroom</a></li>
+            <li class="mb-2"><a href="shop.html">Dining</a></li>
+            <li class="mb-2"><a href="shop.html">Study &amp; Work</a></li>
+            <li class="mb-2"><a href="cart.html">View Cart</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company Links -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Company</h6>
+          <ul class="list-unstyled footer-links small">
+            <li class="mb-2"><a href="about.html">Our Story</a></li>
+            <li class="mb-2"><a href="about.html">Craftsmanship</a></li>
+            <li class="mb-2"><a href="about.html">Sustainability</a></li>
+            <li class="mb-2"><a href="about.html">Careers</a></li>
+            <li class="mb-2"><a href="about.html">Press &amp; Media</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Customer Care</h6>
+          <ul class="list-unstyled footer-links small">
+            <li class="mb-2"><a href="contact.html">Shipping &amp; Delivery</a></li>
+            <li class="mb-2"><a href="contact.html">Assembly Guides</a></li>
+            <li class="mb-2"><a href="contact.html">Warranty &amp; Returns</a></li>
+            <li class="mb-2"><a href="contact.html">FAQs</a></li>
+            <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Studio Address -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Studio &amp; Hours</h6>
+          <p class="text-muted small mb-2">104 KK Market Satara Rd<br>Pune, Maharashtra 560038</p>
+          <p class="text-muted small mb-2"><strong>+91 80 4920 1800</strong><br>hello@furnivostudio.com</p>
+          <small class="text-secondary-custom fw-bold">Mon – Sun: 10am – 8pm</small>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Strip -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-3 small text-muted">
+        <p class="mb-2 mb-md-0">Copyright &copy; 2025 Furnivo Living Inc. All rights reserved.</p>
+        <div class="d-flex gap-3">
+          <a href="#" class="text-muted text-decoration-none">Privacy Policy</a>
+          <span>&bull;</span>
+          <a href="#" class="text-muted text-decoration-none">Terms of Service</a>
+          <span>&bull;</span>
+          <a href="#" class="text-muted text-decoration-none">Sustainability Report</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       14. Consultation Booking Modal
+       ========================================== -->
+  <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 p-3 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="consultationModalLabel">Book In-Home Consultation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body pt-2">
+          <p class="text-muted small mb-3">Our interior design team will bring curated material boards and 3D floor plans to your home.</p>
+          <form id="consultationForm">
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Your Full Name</label>
+              <input type="text" class="form-control rounded-3" id="consultName" placeholder="e.g. Priya Sharma" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">Contact Phone</label>
+              <input type="tel" class="form-control rounded-3" id="consultPhone" placeholder="+91 98765 43210" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold">City / Region</label>
+              <select class="form-select rounded-3" id="consultCity">
+                <option>Bengaluru (Indiranagar &amp; Koramangala)</option>
+                <option>Mumbai (Bandra, Juhu, South Mumbai)</option>
+                <option>Delhi NCR (Chanakyapuri, Gurgaon)</option>
+                <option>Hyderabad (Jubilee Hills)</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-dark-custom w-100 rounded-pill py-2">Confirm Consultation Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       15. Quick View Modal
+       ========================================== -->
+  <div class="modal fade" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-4 border-0 p-3 shadow-lg">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeQuickView()"></button>
+        </div>
+        <div class="modal-body pt-0">
+          <div class="row g-4 align-items-center">
+            <div class="col-md-6">
+              <img id="quickview-img" src="" alt="Product" class="img-fluid rounded-4 shadow-sm w-100 object-fit-cover" style="height: 320px;">
+            </div>
+            <div class="col-md-6">
+              <span class="badge-subtitle" id="quickview-category">Category</span>
+              <h4 class="fw-bold mb-2 text-dark" id="quickview-name">Product Name</h4>
+              <h4 class="text-secondary-custom fw-bold mb-3" id="quickview-price">₹0</h4>
+              <p class="text-muted small mb-4" id="quickview-desc">Description text</p>
+              <div class="d-flex flex-column gap-2">
+                <button class="btn btn-dark-custom w-100" id="quickview-add-btn">
+                  <i class="bi bi-cart-plus me-1"></i> Add to Cart
+                </button>
+                <a href="product-details.html" class="btn btn-outline-custom w-100 text-center" id="quickview-link">
+                  View Full Details <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       16. Wishlist Offcanvas Drawer Popup
+       ========================================== -->
+  <div class="offcanvas offcanvas-end furnivo-drawer" tabindex="-1" id="furnivoWishlistDrawer" aria-labelledby="furnivoWishlistDrawerLabel">
+    <div class="offcanvas-header border-bottom py-3 px-4">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-heart-fill text-danger fs-5"></i>
+        <h5 class="offcanvas-title fw-bold mb-0" id="furnivoWishlistDrawerLabel">Saved Wishlist</h5>
+        <span class="badge bg-secondary-custom rounded-pill ms-1 wishlist-badge">0</span>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onclick="closeWishlistDrawer()"></button>
+    </div>
+    <div class="offcanvas-body p-4" id="furnivoWishlistBody">
+      <!-- Dynamically populated -->
+    </div>
+    <div class="offcanvas-footer border-top p-3 bg-light-custom" id="furnivoWishlistFooter">
+      <!-- Dynamically populated -->
+    </div>
+  </div>
+
+  <!-- ==========================================
+       17. Cart Offcanvas Drawer Popup
+       ========================================== -->
+  <div class="offcanvas offcanvas-end furnivo-drawer" tabindex="-1" id="furnivoCartDrawer" aria-labelledby="furnivoCartDrawerLabel">
+    <div class="offcanvas-header border-bottom py-3 px-4">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-bag-check-fill text-secondary-custom fs-5"></i>
+        <h5 class="offcanvas-title fw-bold mb-0" id="furnivoCartDrawerLabel">Your Shopping Cart</h5>
+        <span class="badge bg-dark rounded-pill ms-1 cart-badge">0</span>
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onclick="closeCartDrawer()"></button>
+    </div>
+    <div class="offcanvas-body p-4" id="furnivoCartBody">
+      <!-- Dynamically populated -->
+    </div>
+    <div class="offcanvas-footer border-top p-3 bg-light-custom" id="furnivoCartFooter">
+      <!-- Dynamically populated -->
+    </div>
+  </div>
+
+  <!-- ==========================================
+       18. Bootstrap Toast Notification
+       ========================================== -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 2000;">
+    <div id="furnivoToast" class="toast align-items-center text-white bg-dark border-0 rounded-4 shadow-lg" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2">
+          <i class="bi bi-check-circle-fill text-warning fs-5"></i>
+          <span id="toastMessage">Action completed successfully!</span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       17. Back To Top Floating Action Button
+       ========================================== -->
+  <button id="backToTop" class="back-to-top" title="Back to top" aria-label="Back to top">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <!-- Bootstrap 5 JavaScript Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script src="js/script.js"></script>
+</body>
+</html>

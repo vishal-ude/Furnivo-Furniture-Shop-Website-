@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account | Furnivo - Sign In &amp; Register</title>
+  <meta name="description" content="Access your Furnivo profile, manage bespoke orders, saved wishlists, delivery addresses, and VIP concierge consultations.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <!-- ==========================================
+       1. Top Announcement Bar
+       ========================================== -->
+  <header class="furnivo-header">
+    <div class="top-promo-bar">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Left: Quality Badge -->
+        <div class="promo-left d-none d-md-flex align-items-center gap-1">
+          <i class="bi bi-patch-check-fill"></i>
+          <span>Heirloom Craftsmanship</span>
+        </div>
+
+        <!-- Center: Promo Text -->
+        <div class="promo-center text-center">
+          <span class="highlight">Free Delivery on Orders Above ₹25,000</span>
+          <span class="mx-2 text-white-50">|</span>
+          <span>Complimentary In-Home Consultation</span>
+        </div>
+
+        <!-- Right: Currency & Contact -->
+        <div class="promo-right d-none d-lg-flex align-items-center gap-3">
+          <div class="currency-select position-relative">
+            <select class="currency-selector-select" onchange="setCurrency(this.value)" aria-label="Select Currency">
+              <option value="INR">INR (₹)</option>
+              <option value="USD">USD ($)</option>
+              <option value="EUR">EUR (€)</option>
+              <option value="GBP">GBP (£)</option>
+              <option value="AED">AED (AED)</option>
+            </select>
+          </div>
+          <span class="text-white-50">|</span>
+          <a href="contact.html" class="text-white text-decoration-none">Help &amp; Concierge</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         2. Navbar
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm furnivo-navbar">
+      <div class="container">
+        <!-- Brand Logo -->
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="images/logo/furnivo-logo.png" alt="Furnivo - Modern Home & Interiors" class="brand-logo-img">
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#furnivoNavbar" aria-controls="furnivoNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links & Actions -->
+        <div class="collapse navbar-collapse" id="furnivoNavbar">
+          <!-- Center Menu Links -->
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shop.html">Shop</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="collection.html">Collections</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contact.html">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Right Action Icons -->
+          <div class="d-flex align-items-center gap-3">
+            <!-- Search Input -->
+            <div class="nav-search-box d-none d-xl-flex align-items-center">
+              <i class="bi bi-search me-2 text-muted"></i>
+              <input type="text" placeholder="Search bespoke designs..." class="border-0 bg-transparent nav-search-input">
+            </div>
+
+            <!-- Wishlist Button with Counter -->
+            <button type="button" class="icon-btn position-relative border-0 bg-transparent" title="Wishlist" onclick="openWishlistDrawer(event)">
+              <i class="bi bi-heart"></i>
+              <span class="badge-count wishlist-badge">0</span>
+            </button>
+
+            <!-- Cart Button with Counter -->
+            <button type="button" class="cart-btn d-flex align-items-center gap-2 border-0 bg-transparent" title="Cart" onclick="openCartDrawer(event)">
+              <i class="bi bi-cart3"></i>
+              <span class="d-none d-sm-inline cart-count-text">Cart</span>
+              <span class="badge-count cart-badge">0</span>
+            </button>
+
+            <!-- Profile Dropdown Panel -->
+            <div class="dropdown">
+              <button class="btn p-0 border-0 bg-transparent dropdown-toggle shadow-none" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdibT-J8Ev9hhChLhGDcpD02NSQ14ubr_Nl5FXigOSQHwdFeVKaIBU6w6bv5iYMwPGz115P_5yR403oJEeGwjIglPocW7WZJUcceJvcOFYUZtcs2sHwvWDzkC8KdF2Nq63nmePBTE7g2Ck4ukVFbn4Lign1zTC1AE00wbeoX_dCSoIe5dcYwEYJm8ozdKpImDS2tFQO1t0eqL-WMEtk_il9YqQT3c0I1ITkZ-98rwYKPgrQW35B2iE" alt="Profile" class="profile-img">
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end profile-dropdown-menu" aria-labelledby="profileDropdown">
+                <li class="dropdown-header">
+                  <h6 class="fw-bold mb-0 text-dark" id="dropdownUserName">Welcome to Furnivo</h6>
+                  <small class="text-muted" id="dropdownUserRole">Bespoke Furniture Concierge</small>
+                </li>
+                <li><a class="dropdown-item mt-2 active" href="login.html"><i class="bi bi-person"></i> My Profile &amp; Account</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" onclick="openWishlistDrawer(event)"><i class="bi bi-heart"></i> My Wishlist</a></li>
+                <li><a class="dropdown-item" href="javascript:void(0)" onclick="openCartDrawer(event)"><i class="bi bi-bag"></i> My Cart Preview</a></li>
+                <li><a class="dropdown-item" href="cart.html"><i class="bi bi-box-seam"></i> My Orders &amp; Checkout</a></li>
+                <li><a class="dropdown-item" href="contact.html"><i class="bi bi-geo-alt"></i> Saved Addresses</a></li>
+                <li><a class="dropdown-item" href="contact.html"><i class="bi bi-question-circle"></i> Help &amp; Support</a></li>
+                <li class="border-top pt-2 mt-2" id="dropdownAuthButtons">
+                  <div class="d-flex gap-2">
+                    <a href="login.html?tab=signin" class="btn btn-sm btn-dark-custom w-50 py-1 text-center">Sign In</a>
+                    <a href="login.html?tab=register" class="btn btn-sm btn-outline-custom w-50 py-1 text-center">Register</a>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ==========================================
+         3. Breadcrumbs
+         ========================================== -->
+    <nav class="container pt-3 pb-2" aria-label="breadcrumb">
+      <ol class="breadcrumb small text-muted mb-0">
+        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none text-muted">Home</a></li>
+        <li class="breadcrumb-item active text-dark fw-semibold" aria-current="page">Account</li>
+      </ol>
+    </nav>
+
+    <!-- ==========================================
+         4. Header Intro
+         ========================================== -->
+    <section class="py-3 text-center">
+      <div class="container max-w-600 mx-auto">
+        <span class="badge-subtitle text-uppercase">Furnivo Atelier</span>
+        <h1 class="display-5 fw-bold text-dark mb-2" id="authPageTitle">Member Access</h1>
+        <p class="text-muted small mb-0" id="authPageSubtitle">
+          Sign in to manage your bespoke orders, curated wishlists, and VIP interior concierge privileges.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         5. Dynamic Auth & Profile Container
+         ========================================== -->
+    <section class="py-4 pb-5">
+      <div class="container">
+        
+        <!-- SECTION A: AUTHENTICATION FORMS (SIGN IN / REGISTER) -->
+        <div id="authFormsWrapper" class="auth-container">
+          <div class="auth-card">
+            
+            <!-- Tab Switcher -->
+            <div class="auth-tabs-nav">
+              <button type="button" class="auth-tab-btn active" id="tabBtnSignIn" onclick="switchAuthTab('signin')">
+                <i class="bi bi-box-arrow-in-right me-1"></i> Sign In
+              </button>
+              <button type="button" class="auth-tab-btn" id="tabBtnRegister" onclick="switchAuthTab('register')">
+                <i class="bi bi-person-plus me-1"></i> Create Account
+              </button>
+            </div>
+
+            <!-- TAB 1: SIGN IN FORM -->
+            <div id="signInTabContent">
+              <!-- Social Sign In -->
+              <div class="d-flex flex-column gap-2 mb-3">
+                <button type="button" class="social-auth-btn" onclick="handleSocialAuth('Google')">
+                  <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.9C6.2 7.1 8.9 5 12 5z"/><path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.7l3.7 2.9c2.2-2 3.7-5 3.7-8.8z"/><path fill="#FBBC05" d="M5.3 14.7c-.2-.7-.4-1.5-.4-2.4 0-.8.2-1.6.4-2.4L1.6 7c-.8 1.6-1.3 3.4-1.3 5.3s.5 3.7 1.3 5.3l3.7-2.9z"/><path fill="#34A853" d="M12 23c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5.1L1.6 16C3.5 19.8 7.4 23 12 23z"/></svg>
+                  Continue with Google
+                </button>
+                <button type="button" class="social-auth-btn" onclick="handleSocialAuth('Apple')">
+                  <i class="bi bi-apple fs-6"></i>
+                  Continue with Apple
+                </button>
+              </div>
+
+              <div class="auth-divider">or with email</div>
+
+              <form id="signInForm" onsubmit="handleSignInSubmit(event)">
+                <div class="mb-3">
+                  <label class="form-label small fw-bold text-dark mb-1" for="signInEmail">Email Address *</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control border-start-0 ps-0" id="signInEmail" placeholder="e.g. rahul@example.com" value="rahul.sharma@example.com" required>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <label class="form-label small fw-bold text-dark mb-0" for="signInPassword">Password *</label>
+                    <a href="javascript:void(0)" class="small text-muted text-decoration-underline" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">Forgot?</a>
+                  </div>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="signInPassword" placeholder="Enter your password" value="furnivo123" required>
+                    <button class="password-toggle-btn" type="button" onclick="togglePasswordVisibility('signInPassword', this)" title="Toggle visibility">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="rememberMe" checked>
+                    <label class="form-check-label small text-muted" for="rememberMe">
+                      Remember me
+                    </label>
+                  </div>
+                  <span class="badge bg-light text-secondary border">Demo: pre-filled</span>
+                </div>
+
+                <button type="submit" class="btn btn-dark-custom w-100 py-2.5 mb-3">
+                  Sign In to Account <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+
+                <p class="text-center small text-muted mb-0">
+                  New to Furnivo? <a href="javascript:void(0)" class="text-dark fw-bold text-decoration-underline" onclick="switchAuthTab('register')">Create an account</a>
+                </p>
+              </form>
+            </div>
+
+            <!-- TAB 2: REGISTER FORM -->
+            <div id="registerTabContent" style="display: none;">
+              <form id="registerForm" onsubmit="handleRegisterSubmit(event)">
+                <div class="mb-3">
+                  <label class="form-label small fw-bold text-dark mb-1" for="regFullName">Full Name *</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-person"></i></span>
+                    <input type="text" class="form-control border-start-0 ps-0" id="regFullName" placeholder="e.g. Ananya Roy" required>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small fw-bold text-dark mb-1" for="regEmail">Email Address *</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-envelope"></i></span>
+                    <input type="email" class="form-control border-start-0 ps-0" id="regEmail" placeholder="e.g. ananya@example.com" required>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small fw-bold text-dark mb-1" for="regPhone">Phone Number (for White-Glove updates)</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-telephone"></i></span>
+                    <input type="tel" class="form-control border-start-0 ps-0" id="regPhone" placeholder="+91 98765 43210">
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small fw-bold text-dark mb-1" for="regPassword">Create Password *</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-lock"></i></span>
+                    <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="regPassword" placeholder="Min. 8 characters" required>
+                    <button class="password-toggle-btn" type="button" onclick="togglePasswordVisibility('regPassword', this)">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label small fw-bold text-dark mb-1" for="regConfirmPassword">Confirm Password *</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-check2-circle"></i></span>
+                    <input type="password" class="form-control border-start-0 border-end-0 ps-0" id="regConfirmPassword" placeholder="Re-enter password" required>
+                    <button class="password-toggle-btn" type="button" onclick="togglePasswordVisibility('regConfirmPassword', this)">
+                      <i class="bi bi-eye"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="form-check mb-2">
+                  <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                  <label class="form-check-label small text-muted" for="termsCheck">
+                    I agree to the <a href="#" class="text-dark text-decoration-underline">Terms of Service</a> &amp; <a href="#" class="text-dark text-decoration-underline">Privacy Policy</a>.
+                  </label>
+                </div>
+
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="vipClubCheck" checked>
+                  <label class="form-check-label small text-muted" for="vipClubCheck">
+                    Join Furnivo VIP Atelier Club for complimentary spatial planning &amp; exclusive product preview access.
+                  </label>
+                </div>
+
+                <button type="submit" class="btn btn-dark-custom w-100 py-2.5 mb-3">
+                  Create Furnivo Account <i class="bi bi-arrow-right ms-1"></i>
+                </button>
+
+                <p class="text-center small text-muted mb-0">
+                  Already a member? <a href="javascript:void(0)" class="text-dark fw-bold text-decoration-underline" onclick="switchAuthTab('signin')">Sign In here</a>
+                </p>
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECTION B: LOGGED IN MEMBER DASHBOARD -->
+        <div id="profileDashboardWrapper" style="display: none;">
+          <div class="row g-4">
+            
+            <!-- Left Column: User Card & Navigation -->
+            <div class="col-lg-4">
+              <div class="profile-hero-card mb-4 shadow-sm">
+                <div class="d-flex align-items-center gap-3 mb-3 position-relative" style="z-index: 2;">
+                  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdibT-J8Ev9hhChLhGDcpD02NSQ14ubr_Nl5FXigOSQHwdFeVKaIBU6w6bv5iYMwPGz115P_5yR403oJEeGwjIglPocW7WZJUcceJvcOFYUZtcs2sHwvWDzkC8KdF2Nq63nmePBTE7g2Ck4ukVFbn4Lign1zTC1AE00wbeoX_dCSoIe5dcYwEYJm8ozdKpImDS2tFQO1t0eqL-WMEtk_il9YqQT3c0I1ITkZ-98rwYKPgrQW35B2iE" alt="User Profile" class="rounded-circle border border-2 border-white shadow" style="width: 70px; height: 70px; object-fit: cover;">
+                  <div>
+                    <span class="badge bg-warning text-dark fw-bold px-2 py-1 small mb-1">✦ VIP Atelier Member</span>
+                    <h4 class="fw-bold mb-0 text-white" id="dashboardUserName">Rahul Sharma</h4>
+                    <small class="text-white-50" id="dashboardUserEmail">rahul.sharma@example.com</small>
+                  </div>
+                </div>
+                <div class="pt-3 border-top border-secondary position-relative" style="z-index: 2;">
+                  <div class="d-flex justify-content-between small text-white-50 mb-1">
+                    <span>Member Tier:</span>
+                    <strong class="text-white">Gold Connoisseur</strong>
+                  </div>
+                  <div class="d-flex justify-content-between small text-white-50">
+                    <span>Member Since:</span>
+                    <span class="text-white" id="dashboardJoinDate">October 2024</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Sidebar Navigation Tabs -->
+              <div class="bg-white p-3 rounded-4 border shadow-sm">
+                <div class="nav flex-column nav-pills profile-nav-pills gap-1" id="profileTab" role="tablist">
+                  <button class="nav-link active text-start" id="tab-orders-btn" data-bs-toggle="pill" data-bs-target="#tab-orders" type="button" role="tab">
+                    <i class="bi bi-box-seam me-2"></i> Orders &amp; White-Glove Tracking
+                  </button>
+                  <button class="nav-link text-start" id="tab-addresses-btn" data-bs-toggle="pill" data-bs-target="#tab-addresses" type="button" role="tab">
+                    <i class="bi bi-geo-alt me-2"></i> Saved Addresses
+                  </button>
+                  <button class="nav-link text-start" id="tab-consultation-btn" data-bs-toggle="pill" data-bs-target="#tab-consultation" type="button" role="tab">
+                    <i class="bi bi-calendar2-check me-2"></i> Design Consultations
+                  </button>
+                  <button class="nav-link text-start" id="tab-account-btn" data-bs-toggle="pill" data-bs-target="#tab-account" type="button" role="tab">
+                    <i class="bi bi-gear me-2"></i> Account Settings
+                  </button>
+                  <hr class="my-2 text-muted">
+                  <button class="nav-link text-danger text-start" type="button" onclick="handleSignOut()">
+                    <i class="bi bi-box-arrow-left me-2"></i> Sign Out
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column: Tabbed Content & Stats -->
+            <div class="col-lg-8">
+              
+              <!-- Quick Stats Row -->
+              <div class="row g-3 mb-4">
+                <div class="col-sm-4">
+                  <div class="profile-stat-box">
+                    <div class="profile-stat-number" id="dashWishlistCount">0</div>
+                    <div class="profile-stat-label">Saved to Wishlist</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="profile-stat-box">
+                    <div class="profile-stat-number" id="dashCartCount">0</div>
+                    <div class="profile-stat-label">Items in Bag</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="profile-stat-box">
+                    <div class="profile-stat-number text-success">1</div>
+                    <div class="profile-stat-label">Active Orders</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Tab Contents -->
+              <div class="tab-content" id="profileTabContent">
+                
+                <!-- TAB 1: ORDERS -->
+                <div class="tab-pane fade show active" id="tab-orders" role="tabpanel">
+                  <div class="bg-white p-4 rounded-4 border shadow-sm mb-4">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h5 class="fw-bold text-dark mb-0">Active Shipment</h5>
+                      <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-1">In Transit · Scheduled</span>
+                    </div>
+
+                    <div class="card border rounded-3 p-3 mb-3 bg-light">
+                      <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center gap-2 mb-3">
+                        <div>
+                          <small class="text-muted d-block">Order Reference: <strong>#FRN-84920</strong></small>
+                          <span class="small text-muted">Placed on 04 Oct 2026</span>
+                        </div>
+                        <div class="text-sm-end">
+                          <span class="fw-bold text-dark fs-6">₹84,999</span>
+                          <span class="d-block small text-muted">Paid via UPI</span>
+                        </div>
+                      </div>
+
+                      <div class="d-flex align-items-center gap-3 pb-3 border-bottom">
+                        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=150&q=80" alt="Oslo Sofa" class="rounded-2" style="width: 65px; height: 65px; object-fit: cover;">
+                        <div>
+                          <h6 class="fw-bold mb-0 text-dark">Oslo Lounge Modular Sofa</h6>
+                          <small class="text-muted">Color: Olive Bouclé · Qty: 1</small>
+                          <div class="small text-secondary-custom fw-semibold mt-1">
+                            <i class="bi bi-truck me-1"></i> Complimentary White-Glove In-Room Assembly
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Progress Steps -->
+                      <div class="pt-3">
+                        <div class="d-flex justify-content-between small text-muted mb-2">
+                          <span>Crafted</span>
+                          <span class="fw-bold text-dark">In Transit (Pune Hub)</span>
+                          <span>Out for Assembly</span>
+                        </div>
+                        <div class="progress" style="height: 6px;">
+                          <div class="progress-bar bg-dark" role="progressbar" style="width: 65%;" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <small class="text-muted d-block mt-2">Estimated delivery: <strong>Saturday, 11 Oct 2026</strong></small>
+                      </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center pt-2">
+                      <a href="shop.html" class="btn btn-outline-custom btn-sm">Browse Catalog</a>
+                      <a href="contact.html" class="small text-decoration-underline text-dark">Contact Delivery Concierge</a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TAB 2: ADDRESSES -->
+                <div class="tab-pane fade" id="tab-addresses" role="tabpanel">
+                  <div class="bg-white p-4 rounded-4 border shadow-sm">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                      <h5 class="fw-bold text-dark mb-0">Saved Addresses</h5>
+                      <button class="btn btn-sm btn-dark-custom py-1" onclick="showToast('Add address form available in your checkout flow.')">+ Add New</button>
+                    </div>
+
+                    <div class="row g-3">
+                      <div class="col-md-6">
+                        <div class="card border rounded-3 p-3 position-relative h-100 bg-light">
+                          <span class="badge bg-dark position-absolute top-0 end-0 m-3">Default</span>
+                          <h6 class="fw-bold mb-1">Primary Residence</h6>
+                          <p class="small text-muted mb-2">
+                            Rahul Sharma<br>
+                            Flat 402, Oakwood Sanctuary Apartments,<br>
+                            Koregaon Park, Pune 411001<br>
+                            Phone: +91 98765 43210
+                          </p>
+                          <div class="mt-auto pt-2 border-top">
+                            <a href="javascript:void(0)" class="small text-dark fw-bold text-decoration-none me-3" onclick="showToast('Address is currently active.')">Edit</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-6">
+                        <div class="card border rounded-3 p-3 h-100">
+                          <h6 class="fw-bold mb-1">Architectural Studio / Office</h6>
+                          <p class="small text-muted mb-2">
+                            Furnivo Design Lab<br>
+                            104 KK Market Satara Rd,<br>
+                            Pune, Maharashtra 560038
+                          </p>
+                          <div class="mt-auto pt-2 border-top">
+                            <a href="javascript:void(0)" class="small text-dark fw-bold text-decoration-none" onclick="showToast('Studio location selected.')">Set as Default</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TAB 3: CONSULTATIONS -->
+                <div class="tab-pane fade" id="tab-consultation" role="tabpanel">
+                  <div class="bg-white p-4 rounded-4 border shadow-sm">
+                    <h5 class="fw-bold text-dark mb-2">Spatial Planning &amp; Consultations</h5>
+                    <p class="small text-muted mb-4">
+                      Book a dedicated senior interior consultant to visit your residence with curated fabric swatches, wood finishes, and 3D architectural floor plans.
+                    </p>
+                    <div class="architectural-promo-card p-4">
+                      <div class="architectural-badge">
+                        <i class="bi bi-star"></i> Atelier Exclusive
+                      </div>
+                      <h4 class="architectural-title fs-5">Ready to design your living room?</h4>
+                      <p class="architectural-desc small mb-3">
+                        Complimentary for VIP members. Receive individualized material matching for our Solid Oak and Bouclé series.
+                      </p>
+                      <button class="btn btn-consult-gold" data-bs-toggle="modal" data-bs-target="#consultationModal">
+                        Schedule In-Home Consultation
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- TAB 4: ACCOUNT SETTINGS -->
+                <div class="tab-pane fade" id="tab-account" role="tabpanel">
+                  <div class="bg-white p-4 rounded-4 border shadow-sm">
+                    <h5 class="fw-bold text-dark mb-3">Profile Information</h5>
+                    <form onsubmit="event.preventDefault(); showToast('Account details updated successfully!');">
+                      <div class="row g-3">
+                        <div class="col-md-6">
+                          <label class="form-label small fw-bold">Full Name</label>
+                          <input type="text" class="form-control" id="editName" value="Rahul Sharma">
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label small fw-bold">Email Address</label>
+                          <input type="email" class="form-control" id="editEmail" value="rahul.sharma@example.com">
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label small fw-bold">Phone Number</label>
+                          <input type="tel" class="form-control" id="editPhone" value="+91 98765 43210">
+                        </div>
+                        <div class="col-md-6">
+                          <label class="form-label small fw-bold">Preferred Wood Finish</label>
+                          <select class="form-select">
+                            <option selected>Natural Matte European Oak</option>
+                            <option>Smoked American Walnut</option>
+                            <option>Muted White Ash</option>
+                          </select>
+                        </div>
+                        <div class="col-12 pt-2">
+                          <button type="submit" class="btn btn-dark-custom">Save Changes</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Consultation Advisory Banner -->
+    <section class="container pb-5">
+      <div class="architectural-promo-card">
+        <div class="architectural-glow"></div>
+        <div class="row align-items-center justify-content-between g-4 position-relative" style="z-index: 2;">
+          <div class="col-lg-8">
+            <div class="architectural-badge">
+              <i class="bi bi-palette"></i> Bespoke Architectural Curation
+            </div>
+            <h3 class="architectural-title">
+              Looking to furnish an entire private residence?
+            </h3>
+            <p class="architectural-desc mb-0">
+              Our interior team provides full spatial planning, wood-finish coordination, and white-glove setup for luxury homes across India.
+            </p>
+          </div>
+          <div class="col-lg-4 d-flex flex-column flex-sm-row flex-lg-column gap-2 justify-content-lg-end">
+            <button class="btn-consult-gold text-center" data-bs-toggle="modal" data-bs-target="#consultationModal">
+              Book Complimentary Consultation
+            </button>
+            <a href="shop.html" class="btn-consult-glass text-center text-decoration-none">
+              Browse All Furniture
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================
+       6. Footer
+       ========================================== -->
+  <footer class="furnivo-footer bg-white pt-5 pb-4 border-top">
+    <div class="container">
+      <div class="row g-4 pb-4 border-bottom">
+        <!-- Col 1: Brand Info -->
+        <div class="col-lg-4">
+          <a class="d-flex align-items-center mb-3 text-decoration-none" href="index.html">
+            <img src="images/logo/furnivo-logo.png" alt="Furnivo - Modern Home & Interiors" class="brand-logo-img footer-logo-img">
+          </a>
+          <p class="text-muted small mb-4">
+            Furnivo crafts timeless, sustainable furniture combining Scandinavian minimalism with rich organic materials designed for modern living.
+          </p>
+          <div class="d-flex gap-2">
+            <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="social-btn" aria-label="Pinterest"><i class="bi bi-pinterest"></i></a>
+            <a href="#" class="social-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop Links -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Shop</h6>
+          <ul class="list-unstyled footer-links small">
+            <li class="mb-2"><a href="shop.html">Living Room</a></li>
+            <li class="mb-2"><a href="shop.html">Bedroom</a></li>
+            <li class="mb-2"><a href="shop.html">Dining</a></li>
+            <li class="mb-2"><a href="shop.html">Study &amp; Work</a></li>
+            <li class="mb-2"><a href="cart.html">View Cart</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Company Links -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Company</h6>
+          <ul class="list-unstyled footer-links small">
+            <li class="mb-2"><a href="about.html">Our Story</a></li>
+            <li class="mb-2"><a href="about.html">Craftsmanship</a></li>
+            <li class="mb-2"><a href="about.html">Sustainability</a></li>
+            <li class="mb-2"><a href="about.html">Careers</a></li>
+            <li class="mb-2"><a href="about.html">Press &amp; Media</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Customer Care -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Customer Care</h6>
+          <ul class="list-unstyled footer-links small">
+            <li class="mb-2"><a href="contact.html">Shipping &amp; Delivery</a></li>
+            <li class="mb-2"><a href="contact.html">Assembly Guides</a></li>
+            <li class="mb-2"><a href="contact.html">Warranty &amp; Returns</a></li>
+            <li class="mb-2"><a href="contact.html">FAQs</a></li>
+            <li class="mb-2"><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Studio Address -->
+        <div class="col-6 col-md-3 col-lg-2">
+          <h6 class="footer-heading mb-3 fw-bold">Studio &amp; Hours</h6>
+          <p class="small text-muted mb-2 leading-relaxed">
+            104 KK Market Satara Rd,<br>
+            Pune, Maharashtra 560038
+          </p>
+          <p class="small text-muted mb-0">
+            <strong>Mon – Sat:</strong> 10:00 AM – 8:00 PM<br>
+            <strong>Sunday:</strong> 11:00 AM – 6:00 PM
+          </p>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Copyright & Badges -->
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center pt-4 small text-muted gap-3">
+        <div>
+          &copy; 2026 Furnivo Modern Home &amp; Interiors. All rights reserved.
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <span class="d-flex align-items-center gap-1"><i class="bi bi-shield-check text-success"></i> 100% Secure Checkout</span>
+          <span class="d-flex align-items-center gap-1"><i class="bi bi-box-seam text-secondary-custom"></i> Insured Delivery</span>
+          <span class="d-flex align-items-center gap-1"><i class="bi bi-tree text-success"></i> FSC Certified Timber</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       Forgot Password Modal
+       ========================================== -->
+  <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 p-3 shadow">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold text-dark" id="forgotPasswordModalLabel">Reset Your Password</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small">Enter your account email address and we'll send you instructions to reset your password.</p>
+          <form onsubmit="event.preventDefault(); bootstrap.Modal.getInstance(document.getElementById('forgotPasswordModal')).hide(); showToast('Password reset instructions sent to your email!');">
+            <div class="mb-3">
+              <label class="form-label small fw-bold text-dark">Email Address</label>
+              <input type="email" class="form-control rounded-3" placeholder="Enter your registered email" required>
+            </div>
+            <button type="submit" class="btn btn-dark-custom w-100 py-2">Send Reset Link</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Consultation Modal -->
+  <div class="modal fade" id="consultationModal" tabindex="-1" aria-labelledby="consultationModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content rounded-4 border-0 p-3">
+        <div class="modal-header border-0 pb-0">
+          <h5 class="modal-title fw-bold" id="consultationModalLabel">Book Design Consultation</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="text-muted small mb-3">Our interior design specialist will connect with you within 24 hours.</p>
+          <form id="consultationForm">
+            <div class="mb-3">
+              <label class="form-label small fw-bold" for="consultName">Full Name</label>
+              <input type="text" class="form-control rounded-3" id="consultName" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold" for="consultPhone">Phone Number</label>
+              <input type="tel" class="form-control rounded-3" id="consultPhone" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label small fw-bold" for="consultCity">City / Location</label>
+              <input type="text" class="form-control rounded-3" id="consultCity" placeholder="e.g. Pune, Bengaluru, Mumbai" required>
+            </div>
+            <button type="submit" class="btn btn-dark-custom w-100 py-2">Submit Request</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Wishlist Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-end wishlist-drawer" tabindex="-1" id="wishlistOffcanvas" aria-labelledby="wishlistOffcanvasLabel">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title fw-bold" id="wishlistOffcanvasLabel">
+        <i class="bi bi-heart me-2 text-danger"></i> Saved Wishlist (<span class="wishlist-drawer-count">0</span>)
+      </h5>
+      <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between p-3" id="wishlistDrawerBody">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Cart Offcanvas Drawer -->
+  <div class="offcanvas offcanvas-end cart-drawer" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+    <div class="offcanvas-header border-bottom">
+      <h5 class="offcanvas-title fw-bold" id="cartOffcanvasLabel">
+        <i class="bi bi-bag me-2"></i> Shopping Bag (<span class="cart-drawer-count">0</span>)
+      </h5>
+      <button type="button" class="btn-close shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column justify-content-between p-3" id="cartDrawerBody">
+      <!-- Injected by JavaScript -->
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 2000;">
+    <div id="furnivoToast" class="toast align-items-center text-bg-dark border-0 shadow-lg rounded-3" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body d-flex align-items-center gap-2 py-3" id="toastMessage">
+          Action completed successfully.
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto shadow-none" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
